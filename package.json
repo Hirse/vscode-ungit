@@ -1,0 +1,68 @@
+{
+  "name": "vscode-ungit",
+  "displayName": "Ungit",
+  "description": "Ungit in Visual Studio Code.",
+  "icon": "images/logo.png",
+  "version": "1.0.0",
+  "publisher": "Hirse",
+  "galleryBanner": {
+    "color": "#252833",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/hirse/vscode-ungit/issues",
+  "homepage": "https://github.com/hirse/vscode-ungit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hirse/vscode-ungit.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "ungit",
+    "git"
+  ],
+  "engines": {
+    "vscode": "^1.11.1"
+  },
+  "main": "./out/extension",
+  "activationEvents": [
+    "onCommand:extension.ungit"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.ungit",
+        "title": "Open Ungit"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.ungit",
+        "key": "shift+alt+u",
+        "mac": "shift+alt+u"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -watch",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "lint": "tslint -p tsconfig.json",
+    "pretest": "npm run lint",
+    "test": "node ./node_modules/vscode/bin/test",
+    "vscode:prepublish": "tsc"
+  },
+  "dependencies": {
+    "ungit": "1.1.14"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "mocha": "^3.2.0",
+    "tslint": "^5.0.0",
+    "typescript": "^2.2.2",
+    "vsce": "^1.20.0",
+    "vscode": "^1.1.0"
+  }
+}
