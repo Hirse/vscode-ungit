@@ -59,7 +59,9 @@ function executeCommand(provider: TextDocumentContentProvider): void {
 
     child = fork(modulePath, ["-b=0"], { silent: true });
     child.stdout.on("data", (message: Buffer) => {
-        const started = message.toString().indexOf("## Ungit started ##") !== -1;
+        const started =
+            (message.toString().indexOf("## Ungit started ##") !== -1) ||
+            (message.toString().indexOf("Ungit server already running") !== -1);
         if (started) {
             provider.ready = true;
         }
