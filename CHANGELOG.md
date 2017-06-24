@@ -7,6 +7,9 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Updated Ungit to 1.1.20
 
+### Fixed
+- Attach to existing Ungit sessions (see [#8](https://github.com/Hirse/vscode-ungit/issues/8)), thanks to [__@srfrnk__](https://github.com/srfrnk)
+
 
 ## 1.0.1 - 2017-06-01
 ### Changed
