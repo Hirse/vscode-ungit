@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
@@ -26,7 +26,7 @@
   "engines": {
     "vscode": "^1.11.1"
   },
-  "main": "./out/extension",
+  "main": "./out/src/extension",
   "activationEvents": [
     "onCommand:extension.ungit"
   ],
