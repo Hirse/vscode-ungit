@@ -3,7 +3,7 @@ install:
   - npm install
 
 build_script:
-  - npm run compile
+  - npm run vscode:prepublish
 
 test_script:
   - node --version
