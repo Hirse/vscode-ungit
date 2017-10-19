@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
@@ -54,7 +54,7 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.1.29"
+    "ungit": "1.1.32"
   },
   "devDependencies": {
     "@types/mocha": "2.2.x",

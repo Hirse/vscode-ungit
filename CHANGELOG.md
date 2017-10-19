@@ -1,6 +1,11 @@
 # Change Log
-All notable changes to this project will be documented in this file.  
+All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
+
+
+## 1.0.5 - 2017-10-18
+### Changed
+- Updated Ungit to 1.1.32
 
 
 ## 1.0.4 - 2017-09-24
