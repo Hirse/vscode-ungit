@@ -1,0 +1,11 @@
+install:
+  - ps: Install-Product node ''
+  - npm install
+
+build_script:
+  - npm run compile
+
+test_script:
+  - node --version
+  - npm --version
+  - npm test
