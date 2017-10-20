@@ -48,7 +48,8 @@
   "scripts": {
     "compile": "tsc -watch",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "tslint -t verbose -p tsconfig.json",
+    "publish": "vsce publish",
     "pretest": "npm run lint",
     "test": "node ./node_modules/vscode/bin/test",
     "vscode:prepublish": "tsc"
@@ -60,7 +61,7 @@
     "@types/mocha": "2.2.x",
     "@types/node": "8.0.x",
     "mocha": "4.0.x",
-    "tslint": "5.7.x",
+    "tslint": "5.8.x",
     "typescript": "2.5.x",
     "vsce": "1.31.x",
     "vscode": "1.1.x"
