@@ -57,7 +57,7 @@ function executeCommand(provider: TextDocumentContentProvider): void {
         vscode.window.showErrorMessage(reason);
     });
 
-    child = fork(modulePath, ["-b=0"], { silent: true });
+    child = fork(modulePath, ["-b=0", "--ungitVersionCheckOverride"], { silent: true });
     child.stdout.on("data", (message: Buffer) => {
         const started =
             (message.toString().indexOf("## Ungit started ##") !== -1) ||
