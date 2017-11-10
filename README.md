@@ -13,9 +13,10 @@ Extension to show [ungit][ungit] in Visual Studio Code.
 ![Ungit in VSCode](https://raw.githubusercontent.com/Hirse/vscode-ungit/master/screenshots/ungit.png)
 
 ## License
-VSCode ungit is licensed under the [MIT license][MIT]. [ungit][ungit] is licensed under [LYC][LYC].
+VSCode ungit is licensed under the [MIT license][MIT].  
+[ungit][ungit] is licensed as [Faircode][Faircode].
 
 
-[LYC]: https://licenseyourcode.com/product/Ungit
+[Faircode]: https://faircode.io/product/Ungit
 [MIT]: http://opensource.org/licenses/MIT
 [ungit]: https://github.com/FredrikNoren/ungit
