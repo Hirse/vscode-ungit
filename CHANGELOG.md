@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 1.1.1 - 2017-11-11
+### Changed
+- Updated Ungit to 1.2.3
+- Supress ungit version check, see ([#27](https://github.com/Hirse/vscode-ungit/issues/27))
+
+
 ## 1.1.0 - 2017-11-10
 ### Changed
 - Updated Ungit to 1.2.2
