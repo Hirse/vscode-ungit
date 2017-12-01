@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## Unreleased
+### Changed
+- Move Tab content to fill the whitespace gap
+
+
 ## 1.2.0 - 2017-11-28
 ### Changed
 - Updated Ungit to 1.3.1

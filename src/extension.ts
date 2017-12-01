@@ -30,7 +30,7 @@ export class TextDocumentContentProvider implements vscode.TextDocumentContentPr
     private getLoadingHtml(): string {
         const imagePath = path.join(__dirname, "..", "..", "images", "logo.png");
         return `
-        <div style="position: fixed; height: 100%; width: 100%; background: #252833; display: flex; justify-content: space-around; flex-direction: column; align-items: center;">
+        <div style="position: fixed; height: 100%; width: 100%; margin-left: -20px; background: #252833; display: flex; justify-content: space-around; flex-direction: column; align-items: center;">
             <image src="${imagePath}" />
             <h1 style="color: #d8d8d8;">
                 Loading ...
@@ -43,7 +43,7 @@ export class TextDocumentContentProvider implements vscode.TextDocumentContentPr
         const location = vscode.workspace.rootPath || "";
         const url = `http://localhost:8448/#/repository?path=${location}`;
         return `
-        <div style="position: fixed; height: 100%; width: 100%;">
+        <div style="position: fixed; height: 100%; width: 100%; margin-left: -20px;">
             <iframe src="${url}" style="border: none;" height="100%" width="100%"></iframe>
         </div>
         `;
