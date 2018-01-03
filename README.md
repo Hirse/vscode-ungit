@@ -18,9 +18,8 @@ See [#2](https://github.com/Hirse/vscode-ungit/issues/2),[#32](https://github.co
 
 ## License
 VSCode ungit is licensed under the [MIT license][MIT].  
-[ungit][ungit] is licensed as [Faircode][Faircode].
+[ungit][ungit] is also licensed under the [MIT license][MIT] (again).
 
 
-[Faircode]: https://faircode.io/product/Ungit
 [MIT]: http://opensource.org/licenses/MIT
 [ungit]: https://github.com/FredrikNoren/ungit
