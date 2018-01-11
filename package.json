@@ -62,7 +62,7 @@
     "@types/mocha": "2.2.x",
     "@types/node": "8.5.x",
     "mocha": "4.1.x",
-    "tslint": "5.8.x",
+    "tslint": "~5.9.0",
     "typescript": "2.6.x",
     "vsce": "1.35.x",
     "vscode": "1.1.x"
