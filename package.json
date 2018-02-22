@@ -64,7 +64,7 @@
     "mocha": "5.0.x",
     "tslint": "5.9.x",
     "typescript": "2.7.x",
-    "vsce": "1.36.x",
+    "vsce": "~1.37.0",
     "vscode": "1.1.x"
   }
 }
