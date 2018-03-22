@@ -59,7 +59,7 @@
     "ungit": "1.4.9"
   },
   "devDependencies": {
-    "@types/mocha": "2.2.x",
+    "@types/mocha": "~5.0.0",
     "@types/node": "8.5.x",
     "mocha": "5.0.x",
     "tslint": "5.9.x",
