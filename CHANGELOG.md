@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 1.5.0 - 2018-05-20
+### Changed
+- Updated VSCode requirement to ^1.23.0
+- Updated Ungit to 1.4.22
+
+
 ## 1.4.0 - 2018-04-06
 ### Changed
 - Use VSCode Progress Notification instead of loading screen
