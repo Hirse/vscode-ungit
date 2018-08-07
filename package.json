@@ -31,12 +31,36 @@
     "onCommand:extension.ungit"
   ],
   "contributes": {
+    "configuration": {
+      "title": "Ungit Extension configuration",
+      "properties": {
+        "ungit.showButton": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a button in the editor title bar to open Ungit",
+          "scope": "resource"
+        }
+      }
+    },
     "commands": [
       {
         "command": "extension.ungit",
-        "title": "Open Ungit"
+        "title": "Open Ungit",
+        "icon": {
+          "dark": "./images/icon-dark.svg",
+          "light": "./images/icon-light.svg"
+        }
       }
     ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "config.ungit.showButton",
+          "command": "extension.ungit",
+          "group": "navigation"
+        }
+      ]
+    },
     "keybindings": [
       {
         "command": "extension.ungit",
