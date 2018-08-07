@@ -2,13 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
+## 1.6.0 - 2018-08-06
 ### Added
 - Support for Multi Root Workspace
 - Editor Title Button to open Ungit (disabled by default), see ([#54](https://github.com/Hirse/vscode-ungit/issues/54))
 - Configuration option to enable button
 
 ### Changed
+- Updated VSCode requirement to ^1.25.0
 - Updated Ungit to 1.4.31
 
 
