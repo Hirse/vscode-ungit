@@ -1,11 +1,13 @@
 import * as assert from "assert";
-import * as vscode from "vscode";
-import * as ungitExtension from "../src/extension";
+import { Uri } from "vscode";
+import { UngitTextDocumentContentProvider } from "../src/extension";
 
-suite("TextDocumentContentProvider", () => {
-    test("provideTextDocumentContent returns iframe", () => {
-        const previewUri = vscode.Uri.parse("ungit://view");
-        const provider = new ungitExtension.TextDocumentContentProvider();
-        assert.ok(provider.provideTextDocumentContent(previewUri).indexOf("iframe") !== -1);
+suite("UngitTextDocumentContentProvider", () => {
+    test("provideTextDocumentContent returns iframe with path", () => {
+        const provider = new UngitTextDocumentContentProvider();
+        const fsPath = "aaa";
+        const text = provider.provideTextDocumentContent(Uri.parse(`ungit:${fsPath}`));
+        assert.ok(text.includes("iframe"));
+        assert.ok(text.includes(fsPath));
     });
 });
