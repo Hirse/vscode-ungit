@@ -3,6 +3,7 @@ import { dirname, join } from "path";
 import { commands, ExtensionContext, ProgressLocation, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
 
 const modulePath = join(__dirname, "..", "..", "node_modules", "ungit", "bin", "ungit");
+let iconPath: string;
 let child: ChildProcess;
 
 function getWebViewHTML(uri: Uri, title: string): string {
@@ -81,20 +82,38 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                         increment: 100,
                     });
                     const panel = window.createWebviewPanel("ungit", ungitTabTitle, {
-                        viewColumn: ViewColumn.Beside,
+                        viewColumn,
                         preserveFocus: true,
                     }, {
                         retainContextWhenHidden: true,
                         enableScripts: true,
                     });
                     panel.webview.html = getWebViewHTML(ungitUri, ungitTabTitle);
+                    panel.iconPath = Uri.file(iconPath);
+                    resolve();
                 }
+            });
+            child.on("message", (message: Buffer) => {
+                debugger;
+            });
+            child.stdout.on("end", (message: Buffer) => {
+                reject(message.toString());
+            });
+            child.stdout.on("close", (message: Buffer) => {
+                reject(message.toString());
+            });
+            child.stdout.on("error", (message: Buffer) => {
+                reject(message.toString());
+            });
+            child.stderr.on("data", (message: Buffer) => {
+                reject(message.toString());
             });
         });
     });
 }
 
 export function activate(context: ExtensionContext): void {
+    iconPath = join(context.extensionPath, "images", "icon.png");
     const disposable = commands.registerCommand("extension.ungit", executeCommand);
     context.subscriptions.push(disposable);
 }
