@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
+## 1.7.0 - 2018-10-09
+### Added
+- Show Ungit view in active editor column (disabled by default), see ([#59](https://github.com/Hirse/vscode-ungit/issues/59))
+- Configuration option to set editor column
+
+### Changed
+- Updated VSCode requirement to ^1.28.0
+- Updated Ungit to 1.4.34
+
+
 ## 1.6.0 - 2018-08-06
 ### Added
 - Support for Multi Root Workspace

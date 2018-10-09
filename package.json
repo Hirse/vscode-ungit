@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
@@ -25,7 +25,7 @@
     "multi-root ready"
   ],
   "engines": {
-    "vscode": "^1.25.0"
+    "vscode": "^1.28.0"
   },
   "main": "./out/src/extension",
   "activationEvents": [
@@ -39,6 +39,12 @@
           "type": "boolean",
           "default": false,
           "description": "Show a button in the editor title bar to open Ungit",
+          "scope": "resource"
+        },
+        "ungit.showInActiveColumn": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open the Ungit view in the active editor column instead of on the side",
           "scope": "resource"
         }
       }
@@ -81,15 +87,15 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.4.31"
+    "ungit": "1.4.34"
   },
   "devDependencies": {
     "@types/mocha": "5.2.x",
-    "@types/node": "10.5.x",
+    "@types/node": "10.11.x",
     "mocha": "5.2.x",
     "tslint": "5.11.x",
-    "typescript": "2.9.x",
-    "vsce": "1.45.x",
+    "typescript": "3.1.x",
+    "vsce": "1.51.x",
     "vscode": "1.1.x"
   }
 }

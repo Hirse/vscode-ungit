@@ -58,6 +58,8 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
         });
         return new Promise((resolve, reject) => {
             child = fork(modulePath, ["--no-b", "--ungitVersionCheckOverride"], { silent: true });
+            const showInActiveColumn = workspace.getConfiguration("ungit").get<boolean>("showInActiveColumn") === true;
+            const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
             child.stdout.on("data", (message: Buffer) => {
                 const started =
                     (message.toString().includes("## Ungit started ##")) ||
@@ -67,7 +69,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                     progress.report({
                         increment: 100,
                     });
-                    commands.executeCommand("vscode.previewHtml", ungitUri, ViewColumn.Two, ungitTabTitle).then(() => {
+                    commands.executeCommand("vscode.previewHtml", ungitUri, viewColumn, ungitTabTitle).then(() => {
                         resolve();
                     }, (reason: string) => {
                         window.showErrorMessage(reason);
