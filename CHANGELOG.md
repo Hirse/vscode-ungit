@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
+
+## 1.7.1 - 2018-10-23
+### Changed
+- Updated Ungit to 1.4.35
+
+
 ## 1.7.0 - 2018-10-09
 ### Added
 - Show Ungit view in active editor column (disabled by default), see ([#59](https://github.com/Hirse/vscode-ungit/issues/59))
