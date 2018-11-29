@@ -4937,10 +4937,10 @@ underscore@~1.5.2:
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.5.2.tgz#1335c5e4f5e6d33bbb4b006ba8c86a00f556de08"
   integrity sha1-EzXF5PXm0zu7SwBrqMhqAPVW3gg=
 
-ungit@1.4.35:
-  version "1.4.35"
-  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.4.35.tgz#e2ea88c4c8965bb1debf1ed1d9e4342b77f6eddd"
-  integrity sha512-K1Un15sypkCp57VPCaDFCfXkUs0UlJ2EBh3PyafA2juqX1V1UkOWQabkMV7OYZudqJz2UVOkkKVFDBd+/x/52g==
+ungit@1.4.36:
+  version "1.4.36"
+  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.4.36.tgz#3013180d830b54a10b5e9bc03d95c27ee70399df"
+  integrity sha512-Tpr9qHQZX/e4Qhz4dg1c5Y/jOs911E2MengusvNxO9+kxaw3ua/j+U0FCcPdg4vTDFtEydCGli3kJCoiEbK48w==
   dependencies:
     bluebird "~3.5.2"
     blueimp-md5 "~2.10.0"
@@ -5176,10 +5176,10 @@ vinyl@^2.0.1, vinyl@^2.0.2:
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
 
-vsce@1.52.x:
-  version "1.52.0"
-  resolved "https://registry.yarnpkg.com/vsce/-/vsce-1.52.0.tgz#9a80e58e1771535274ec06ba3fac55b9ed88bfb6"
-  integrity sha512-k+KYoTx1sacpYf2BHTA7GN82MNSlf2N4EuppFWwtTN/Sh6fWzIJafxxCNBCDK0H+5NDWfRGZheBY8C3/HOE2ZA==
+vsce@1.53.x:
+  version "1.53.2"
+  resolved "https://registry.yarnpkg.com/vsce/-/vsce-1.53.2.tgz#50ec10cf698638ce37fa191caf7faf259c8d23df"
+  integrity sha512-yo7ctgQPK7hKnez/be3Tj7RG3eZzgkFhx/27y9guwzhMxHfjlU1pusAsFT8wBEZKZlYA5HNJAx8oClw4WDWi+A==
   dependencies:
     cheerio "^1.0.0-rc.1"
     commander "^2.8.1"

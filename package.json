@@ -87,7 +87,7 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.4.35"
+    "ungit": "1.4.36"
   },
   "devDependencies": {
     "@types/mocha": "5.2.x",
@@ -95,7 +95,7 @@
     "mocha": "5.2.x",
     "tslint": "5.11.x",
     "typescript": "3.1.x",
-    "vsce": "1.52.x",
+    "vsce": "1.53.x",
     "vscode": "1.1.x"
   }
 }
