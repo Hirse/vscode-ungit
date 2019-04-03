@@ -91,11 +91,11 @@
   },
   "devDependencies": {
     "@types/mocha": "5.2.x",
-    "@types/node": "10.12.x",
-    "mocha": "5.2.x",
-    "tslint": "5.11.x",
-    "typescript": "3.1.x",
-    "vsce": "1.53.x",
+    "@types/node": "10.14.x",
+    "mocha": "6.0.x",
+    "tslint": "5.15.x",
+    "typescript": "3.4.x",
+    "vsce": "1.59.x",
     "vscode": "1.1.x"
   }
 }
