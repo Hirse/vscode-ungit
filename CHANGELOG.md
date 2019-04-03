@@ -5,7 +5,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 ### Changed
-- Updated Ungit to 1.4.36
+- Updated Ungit to 1.4.43
 
 
 ## 1.7.1 - 2018-10-23
