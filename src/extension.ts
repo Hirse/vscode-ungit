@@ -12,13 +12,25 @@ function getWebViewHTML(uri: Uri, title: string): string {
         <html lang="en">
         <head>
             <meta charset="UTF-8" />
-            <!-- Fix csp to allow local style -->
-            <meta http-equiv="Content-Security-Policy" content="default-src http: https:;">
+            <meta http-equiv="Content-Security-Policy" content="unsafe-inline" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>${title}</title>
+            <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                padding: 0;
+            }
+            iframe {
+                display: block;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+            </style>
         </head>
         <body>
-            <iframe src="${url}" style="border: none;" height="100%" width="100%"></iframe>
+            <iframe src="${url}" height="100%" width="100%" frameborder="0"></iframe>
         </body>
         </html>`;
 }
@@ -70,7 +82,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                 parameter.push(`--gitBinPath=${dirname(gitPath)}`);
             }
             child = fork(modulePath, parameter, { silent: true });
-            const showInActiveColumn = workspace.getConfiguration("ungit").get<boolean>("showInActiveColumn") === true;
+            const showInActiveColumn = workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") === true;
             const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
             child.stdout.on("data", (message: Buffer) => {
                 const started =
@@ -92,21 +104,6 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                     panel.iconPath = Uri.file(iconPath);
                     resolve();
                 }
-            });
-            child.on("message", (message: Buffer) => {
-                debugger;
-            });
-            child.stdout.on("end", (message: Buffer) => {
-                reject(message.toString());
-            });
-            child.stdout.on("close", (message: Buffer) => {
-                reject(message.toString());
-            });
-            child.stdout.on("error", (message: Buffer) => {
-                reject(message.toString());
-            });
-            child.stderr.on("data", (message: Buffer) => {
-                reject(message.toString());
             });
         });
     });
