@@ -1,5 +1,5 @@
 import { ChildProcess, fork } from "child_process";
-import { join } from "path";
+import { dirname, join } from "path";
 import { commands, ExtensionContext, ProgressLocation, TextDocumentContentProvider, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
 
 const modulePath = join(__dirname, "..", "..", "node_modules", "ungit", "bin", "ungit");
@@ -57,7 +57,12 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
             }
         });
         return new Promise((resolve, reject) => {
-            child = fork(modulePath, ["--no-b", "--ungitVersionCheckOverride"], { silent: true });
+            const parameter = ["--no-b", "--ungitVersionCheckOverride"];
+            const gitPath = workspace.getConfiguration("git").get<string>("path");
+            if (gitPath) {
+                parameter.push(`--gitBinPath=${dirname(gitPath)}`);
+            }
+            child = fork(modulePath, parameter, { silent: true });
             const showInActiveColumn = workspace.getConfiguration("ungit").get<boolean>("showInActiveColumn") === true;
             const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
             child.stdout.on("data", (message: Buffer) => {
