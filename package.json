@@ -84,8 +84,7 @@
     "publish": "vsce publish",
     "pretest": "npm run lint",
     "test": "node ./node_modules/vscode/bin/test",
-    "vscode:prepublish": "tsc",
-    "ungit": "ungit"
+    "vscode:prepublish": "tsc"
   },
   "dependencies": {
     "ungit": "1.4.43"

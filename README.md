@@ -12,9 +12,6 @@ Extension to show [ungit][ungit] in Visual Studio Code.
 ![Ungit in VSCode as gif](https://raw.githubusercontent.com/Hirse/vscode-ungit/master/screenshots/ungit.gif)
 ![Ungit in VSCode](https://raw.githubusercontent.com/Hirse/vscode-ungit/master/screenshots/ungit.png)
 
-## Webview Preview
-This Preview is using the new Webview API, but is currently not usable due to blocked localStorage: [Microsoft/vscode#52246](https://github.com/Microsoft/vscode/issues/52246).
-
 ## License
 VSCode ungit is licensed under the [MIT license][MIT].  
 [ungit][ungit] is also licensed under the [MIT license][MIT] (again).
