@@ -7,13 +7,14 @@
             "name": "Launch Extension",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "--extensionDevelopmentPath=${workspaceRoot}"
+                "--disable-extensions",
+                "--extensionDevelopmentPath=${workspaceFolder}"
             ],
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceRoot}/out/**/*.js"
+                "${workspaceFolder}/out/**/*.js"
             ],
-            "preLaunchTask": "npm"
+            "preLaunchTask": "npm: compile"
         },
         {
             "type": "extensionHost",
@@ -21,14 +22,15 @@
             "name": "Launch Tests",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "--extensionDevelopmentPath=${workspaceRoot}",
-                "--extensionTestsPath=${workspaceRoot}/out/test"
+                "--disable-extensions",
+                "--extensionDevelopmentPath=${workspaceFolder}",
+                "--extensionTestsPath=${workspaceFolder}/out/test"
             ],
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceRoot}/out/test/**/*.js"
+                "${workspaceFolder}/out/test/**/*.js"
             ],
-            "preLaunchTask": "npm"
+            "preLaunchTask": "npm: compile"
         }
     ]
 }
