@@ -3,12 +3,13 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
-## Unreleased
+## 2.0.0 - 2019-04-05
 ### Added
-- Pass `git.path` setting to ungit, see ([#59](https://github.com/Hirse/vscode-ungit/issues/63))
+- Pass `git.path` setting to ungit, see ([#63](https://github.com/Hirse/vscode-ungit/issues/63))
+- Message on error, see ([#68](https://github.com/Hirse/vscode-ungit/issues/68))
 
 ### Changed
-- Use WebView API
+- Use WebView API, see ([#72](https://github.com/Hirse/vscode-ungit/issues/72))
 - Updated VSCode requirement to ^1.33.0
 - Updated Ungit to 1.4.43
 
