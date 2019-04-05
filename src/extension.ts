@@ -105,6 +105,10 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                     resolve();
                 }
             });
+            child.stderr.on("error", (error) => {
+                window.showErrorMessage(`Error opening Ungit: "${error.message}"`);
+                reject();
+            });
         });
     });
 }
