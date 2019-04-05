@@ -12,7 +12,7 @@ function getWebViewHTML(uri: Uri, title: string): string {
         <html lang="en">
         <head>
             <meta charset="UTF-8" />
-            <meta http-equiv="Content-Security-Policy" content="unsafe-inline" />
+            <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; frame-src http:;" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>${title}</title>
             <style>
