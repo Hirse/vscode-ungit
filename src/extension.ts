@@ -1,19 +1,38 @@
 import { ChildProcess, fork } from "child_process";
 import { dirname, join } from "path";
-import { commands, ExtensionContext, ProgressLocation, TextDocumentContentProvider, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
+import { commands, ExtensionContext, ProgressLocation, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
 
 const modulePath = join(__dirname, "..", "..", "node_modules", "ungit", "bin", "ungit");
+let iconPath: string;
 let child: ChildProcess;
 
-export class UngitTextDocumentContentProvider implements TextDocumentContentProvider {
-    public provideTextDocumentContent(uri: Uri): string {
-        const url = `http://localhost:8448/#/repository?path=${uri.fsPath}`;
-        return `
-        <div style="position: fixed; height: 100%; width: 100%; margin-left: -20px;">
-            <iframe src="${url}" style="border: none;" height="100%" width="100%"></iframe>
-        </div>
-        `;
-    }
+function getWebViewHTML(uri: Uri, title: string): string {
+    const url = `http://localhost:8448/#/repository?path=${uri.fsPath}`;
+    return `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; frame-src http:;" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>${title}</title>
+            <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                padding: 0;
+            }
+            iframe {
+                display: block;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+            </style>
+        </head>
+        <body>
+            <iframe src="${url}" height="100%" width="100%" frameborder="0"></iframe>
+        </body>
+        </html>`;
 }
 
 /**
@@ -63,7 +82,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                 parameter.push(`--gitBinPath=${dirname(gitPath)}`);
             }
             child = fork(modulePath, parameter, { silent: true });
-            const showInActiveColumn = workspace.getConfiguration("ungit").get<boolean>("showInActiveColumn") === true;
+            const showInActiveColumn = workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") === true;
             const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
             child.stdout.on("data", (message: Buffer) => {
                 const started =
@@ -74,12 +93,16 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                     progress.report({
                         increment: 100,
                     });
-                    commands.executeCommand("vscode.previewHtml", ungitUri, viewColumn, ungitTabTitle).then(() => {
-                        resolve();
-                    }, (reason: string) => {
-                        window.showErrorMessage(reason);
-                        reject();
+                    const panel = window.createWebviewPanel("ungit", ungitTabTitle, {
+                        viewColumn,
+                        preserveFocus: true,
+                    }, {
+                        retainContextWhenHidden: true,
+                        enableScripts: true,
                     });
+                    panel.webview.html = getWebViewHTML(ungitUri, ungitTabTitle);
+                    panel.iconPath = Uri.file(iconPath);
+                    resolve();
                 }
             });
         });
@@ -87,10 +110,9 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
 }
 
 export function activate(context: ExtensionContext): void {
-    const provider = new UngitTextDocumentContentProvider();
-    const registration = workspace.registerTextDocumentContentProvider("ungit", provider);
+    iconPath = join(context.extensionPath, "images", "icon.png");
     const disposable = commands.registerCommand("extension.ungit", executeCommand);
-    context.subscriptions.push(disposable, registration);
+    context.subscriptions.push(disposable);
 }
 
 export function deactivate(): void {

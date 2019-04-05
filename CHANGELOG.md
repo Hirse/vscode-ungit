@@ -8,6 +8,8 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 - Pass `git.path` setting to ungit, see ([#59](https://github.com/Hirse/vscode-ungit/issues/63))
 
 ### Changed
+- Use WebView API
+- Updated VSCode requirement to ^1.33.0
 - Updated Ungit to 1.4.43
 
 
