@@ -92,7 +92,7 @@
   "devDependencies": {
     "@types/mocha": "5.2.x",
     "@types/node": "10.14.x",
-    "mocha": "6.0.x",
+    "mocha": "~6.1.0",
     "tslint": "5.15.x",
     "typescript": "3.4.x",
     "vsce": "1.59.x",
