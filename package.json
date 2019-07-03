@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
@@ -25,7 +25,7 @@
     "multi-root ready"
   ],
   "engines": {
-    "vscode": "^1.33.0"
+    "vscode": "^1.36.0"
   },
   "main": "./out/src/extension",
   "activationEvents": [
@@ -78,24 +78,20 @@
   },
   "scripts": {
     "compile": "tsc -watch",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "lint": "tslint -t verbose -p tsconfig.json",
     "package": "vsce package",
     "publish": "vsce publish",
-    "pretest": "npm run lint",
-    "test": "node ./node_modules/vscode/bin/test",
+    "test": "tslint -t verbose -p tsconfig.json",
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.4.43"
+    "ungit": "1.4.44",
+    "vscode-extension-telemetry": "0.1.2"
   },
   "devDependencies": {
-    "@types/mocha": "5.2.x",
-    "@types/node": "10.14.x",
-    "mocha": "6.0.x",
-    "tslint": "5.15.x",
-    "typescript": "3.4.x",
-    "vsce": "1.59.x",
-    "vscode": "1.1.x"
+    "@types/node": "10.11.x",
+    "@types/vscode": "1.36.x",
+    "tslint": "5.x.x",
+    "typescript": "3.5.x",
+    "vsce": "1.64.x"
   }
 }

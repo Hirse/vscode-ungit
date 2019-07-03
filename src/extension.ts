@@ -1,10 +1,14 @@
 import { ChildProcess, fork } from "child_process";
 import { dirname, join } from "path";
 import { commands, ExtensionContext, ProgressLocation, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
+import TelemetryReporter from "vscode-extension-telemetry";
+
+import packageJson from "../package.json";
 
 const modulePath = join(__dirname, "..", "..", "node_modules", "ungit", "bin", "ungit");
 let iconPath: string;
 let child: ChildProcess;
+let telemetryReporter: Readonly<TelemetryReporter>;
 
 function getWebViewHTML(uri: Uri, title: string): string {
     const url = `http://localhost:8448/#/repository?path=${uri.fsPath}`;
@@ -40,6 +44,7 @@ function getWebViewHTML(uri: Uri, title: string): string {
  * Let the user pick a workspace if there is no open file.
  */
 function executeCommand(): void {
+    telemetryReporter.sendTelemetryEvent("extension.ungit");
     const activeTextEditor = window.activeTextEditor;
     let workspaceFolderPromise: Thenable<WorkspaceFolder | undefined>;
     if (activeTextEditor && activeTextEditor.document.uri.scheme === "file") {
@@ -63,7 +68,7 @@ function executeCommand(): void {
 }
 
 function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
-    const ungitUri = workspaceFolder.uri.with({scheme: "ungit"});
+    const ungitUri = workspaceFolder.uri.with({ scheme: "ungit" });
     const ungitTabTitle = `Ungit - ${workspaceFolder.name}`;
     window.withProgress({
         location: ProgressLocation.Notification,
@@ -107,6 +112,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
             });
             child.stderr.on("error", (error) => {
                 window.showErrorMessage(`Error opening Ungit: "${error.message}"`);
+                telemetryReporter.sendTelemetryException(error);
                 reject();
             });
         });
@@ -114,12 +120,16 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
 }
 
 export function activate(context: ExtensionContext): void {
+    telemetryReporter = new TelemetryReporter(packageJson.name, packageJson.version, "732684ea-6bd5-4ef0-a46d-bb9389c6aea5");
     iconPath = join(context.extensionPath, "images", "icon.png");
     const disposable = commands.registerCommand("extension.ungit", executeCommand);
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(disposable, telemetryReporter);
+    telemetryReporter.sendTelemetryEvent("activate");
 }
 
 export function deactivate(): void {
+    telemetryReporter.sendTelemetryEvent("deactivate");
+    telemetryReporter.dispose();
     if (child) {
         child.kill();
     }

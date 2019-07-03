@@ -3,6 +3,15 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.1.0 - 2019-07-03
+### Added
+- Basic Telemetry reporting
+
+### Changed
+- Updated VSCode requirement to ^1.36.0
+- Updated Ungit to 1.4.44
+
+
 ## 2.0.0 - 2019-04-05
 ### Added
 - Pass `git.path` setting to ungit, see ([#63](https://github.com/Hirse/vscode-ungit/issues/63))
