@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.1.1 - 2019-07-17
+### Changed
+- Updated Ungit to 1.4.46
+
+
 ## 2.1.0 - 2019-07-03
 ### Added
 - Basic Telemetry reporting
