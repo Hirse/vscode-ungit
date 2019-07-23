@@ -92,6 +92,6 @@
     "@types/vscode": "1.36.x",
     "tslint": "5.x.x",
     "typescript": "3.5.x",
-    "vsce": "1.65.x"
+    "vsce": "~1.66.0"
   }
 }
