@@ -84,14 +84,19 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.4.46",
+    "ungit": "1.4.48",
     "vscode-extension-telemetry": "0.1.2"
   },
   "devDependencies": {
     "@types/node": "10.11.x",
-    "@types/vscode": "1.36.x",
+    "@types/vscode": "1.x.x",
     "tslint": "5.x.x",
     "typescript": "3.5.x",
-    "vsce": "1.65.x"
+    "vsce": "1.x.x"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "@types/node"
+    ]
   }
 }
