@@ -11,7 +11,7 @@ let child: ChildProcess;
 let telemetryReporter: Readonly<TelemetryReporter>;
 
 function getWebViewHTML(uri: Uri, title: string): string {
-    const url = `http://localhost:8448/#/repository?path=${uri.fsPath}`;
+    const url = `http://localhost:8448/?noheader=true#/repository?path=${uri.fsPath}`;
     return `<!DOCTYPE html>
         <html lang="en">
         <head>

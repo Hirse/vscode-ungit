@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## Unreleased
+### Changed
+- Updated Ungit to 1.4.48
+- Use ungit without header
+
+
 ## 2.1.1 - 2019-07-17
 ### Changed
 - Updated Ungit to 1.4.46
