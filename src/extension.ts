@@ -93,7 +93,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                 const started =
                     (message.toString().includes("## Ungit started ##")) ||
                     (message.toString().includes("Ungit server already running")) ||
-                    (message.toString().includes("Error: listen EADDRINUSE 127.0.0.1:8448"));
+                    (message.toString().includes("EADDRINUSE: address already in use"));
                 if (started) {
                     progress.report({
                         increment: 100,
