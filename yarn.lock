@@ -4354,10 +4354,10 @@ underscore@1.8.3:
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
   integrity sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
 
-ungit@1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.5.2.tgz#d66e6373240afcdb7d9acb5b8fec1201f55cad23"
-  integrity sha512-sR268en5/eRB6mUjPqDhIXWeavuCJ9gGsZubxPKbNRxMH331d8nKtY0KAvQCYclHTNK/7GCp6v8I+1mfWxqxCg==
+ungit@1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.5.3.tgz#911a081a232d437b314e6d0c5ccaa2e67b3f6228"
+  integrity sha512-P47B9tvsJMtEJqQL9hwmkt/ygklfliLsHMAYJ9HdK5cv2Bn7vk+NhNphNgGjr/SgfnlW+jZP8QJky+JBT20m4w==
   dependencies:
     "@primer/octicons" "^9.2.0"
     bluebird "~3.5.4"
