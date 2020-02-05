@@ -882,7 +882,7 @@ debug@^4.1.1, debug@~4.1.0:
   dependencies:
     ms "^2.1.1"
 
-debuglog@^1.0.1:
+debuglog@*, debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -1848,7 +1848,7 @@ import-lazy@^2.1.0:
   resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
   integrity sha1-BWmOPUXIjo1+nZLLBYTnfwlvPkM=
 
-imurmurhash@^0.1.4:
+imurmurhash@*, imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -2347,6 +2347,11 @@ locks@~0.2.2:
   resolved "https://registry.yarnpkg.com/locks/-/locks-0.2.2.tgz#259933d1327cbaf0fd3662f8fffde36809d84ced"
   integrity sha1-JZkz0TJ8uvD9NmL4//3jaAnYTO0=
 
+lodash._baseindexof@*:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
+  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
+
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -2355,10 +2360,32 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
+lodash._bindcallback@*:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
+  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
+
+lodash._cacheindexof@*:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
+  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
+
+lodash._createcache@*:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
+  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
+  dependencies:
+    lodash._getnative "^3.0.0"
+
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
+
+lodash._getnative@*, lodash._getnative@^3.0.0:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
+  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._root@~3.0.0:
   version "3.0.1"
@@ -2374,6 +2401,11 @@ lodash.merge@^4.6.1:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+
+lodash.restparam@*:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
+  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.union@~4.6.0:
   version "4.6.0"
@@ -2663,9 +2695,9 @@ node-fetch-npm@^2.0.2:
     safe-buffer "^5.1.1"
 
 node-gyp@^5.0.2, node-gyp@^5.0.5:
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-5.0.7.tgz#dd4225e735e840cf2870e4037c2ed9c28a31719e"
-  integrity sha512-K8aByl8OJD51V0VbUURTKsmdswkQQusIvlvmTyhHlIT1hBvaSxzdxpSle857XuXa7uc02UEZx9OR5aDxSWS5Qw==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-5.1.0.tgz#8e31260a7af4a2e2f994b0673d4e0b3866156332"
+  integrity sha512-OUTryc5bt/P8zVgNUmC6xdXiDJxLMAW8cF5tLQOT9E5sOQj+UeQxnnPy74K3CLCa/SOjjBlbuzDLR8ANwA+wmw==
   dependencies:
     env-paths "^2.2.0"
     glob "^7.1.4"
@@ -4354,10 +4386,10 @@ underscore@1.8.3:
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
   integrity sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
 
-ungit@1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.5.2.tgz#d66e6373240afcdb7d9acb5b8fec1201f55cad23"
-  integrity sha512-sR268en5/eRB6mUjPqDhIXWeavuCJ9gGsZubxPKbNRxMH331d8nKtY0KAvQCYclHTNK/7GCp6v8I+1mfWxqxCg==
+ungit@1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/ungit/-/ungit-1.5.3.tgz#911a081a232d437b314e6d0c5ccaa2e67b3f6228"
+  integrity sha512-P47B9tvsJMtEJqQL9hwmkt/ygklfliLsHMAYJ9HdK5cv2Bn7vk+NhNphNgGjr/SgfnlW+jZP8QJky+JBT20m4w==
   dependencies:
     "@primer/octicons" "^9.2.0"
     bluebird "~3.5.4"
@@ -4526,9 +4558,9 @@ verror@1.10.0:
     extsprintf "^1.2.0"
 
 vsce@1.x.x:
-  version "1.72.0"
-  resolved "https://registry.yarnpkg.com/vsce/-/vsce-1.72.0.tgz#5043733fe6328444d47acb13d208b69928bfe851"
-  integrity sha512-4+e7Ltv4fztoWuWaJ+tHNIjVYdM8XkuDXfg2AkTc8GGGezuA3urwVi5jddtrWR1bWXF8JWkArAwgWC5ozrLzWA==
+  version "1.73.0"
+  resolved "https://registry.yarnpkg.com/vsce/-/vsce-1.73.0.tgz#f65b501f0d1e45e50b220b284a47df164c4e847b"
+  integrity sha512-6W37Ebbkj3uF3WhT+SCfRtsneRQEFcGvf/XYz+b6OAgDCj4gPurWyDVrqw/HLsbP1WflGIyUfVZ8t5M7kQp6Uw==
   dependencies:
     azure-devops-node-api "^7.2.0"
     chalk "^2.4.2"

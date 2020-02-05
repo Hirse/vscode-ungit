@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
@@ -84,7 +84,7 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.5.2",
+    "ungit": "1.5.3",
     "vscode-extension-telemetry": "0.1.2"
   },
   "devDependencies": {

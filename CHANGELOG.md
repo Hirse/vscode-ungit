@@ -3,10 +3,18 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.2.1 - 2020-02-04
+### Changed
+- Updated Ungit to 1.5.3
+
+
 ## 2.2.0 - 2020-01-31
 ### Changed
 - Updated Ungit to 1.5.2
 - Use ungit without header
+
+## Fixed
+- Correctly handle already running server, see ([#68](https://github.com/Hirse/vscode-ungit/issues/68))
 
 
 ## 2.1.1 - 2019-07-17
