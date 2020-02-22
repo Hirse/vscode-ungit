@@ -84,7 +84,7 @@
     "vscode:prepublish": "tsc"
   },
   "dependencies": {
-    "ungit": "1.5.3",
+    "ungit": "1.5.4",
     "vscode-extension-telemetry": "0.1.2"
   },
   "devDependencies": {
