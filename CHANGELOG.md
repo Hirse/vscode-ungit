@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.2.3 - 2020-04-21
+### Changed
+- Updated Ungit to 1.5.6
+
+
 ## 2.2.2 - 2020-03-13
 ### Changed
 - Updated Ungit to 1.5.3
