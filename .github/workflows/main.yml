@@ -1,9 +1,9 @@
 on:
   push:
     branches:
-    - gh-actions
+      - gh-actions
   workflow_dispatch:
-  
+
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -12,7 +12,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "*"
-          cache: 'yarn'
+          cache: "yarn"
       - run: yarn --frozen-lockfile
-      - run: npm run build --if-present
-      - run: npm test
+      - run: yarn build --if-present
+      - run: xvfb-run -a yarn test
+        if: runner.os == 'Linux'
+      - id: check
+        if: success()
+        uses: EndBug/version-check@v1
+        with:
+          diff-search: true
+      - if: steps.check.outputs.changed == 'true'
+        run: yarn package
