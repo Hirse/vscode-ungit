@@ -1,0 +1,18 @@
+diff --git a/node_modules/ungit/bin/ungit b/node_modules/ungit/bin/ungit
+index 439872f..1bfe253 100644
+--- a/node_modules/ungit/bin/ungit
++++ b/node_modules/ungit/bin/ungit
+@@ -54,9 +54,10 @@ const navigate = () => {
+ }
+ 
+ const launch = () => {
+-  const child = child_process.spawn(process.argv[0], // because it's `nodejs` in some OS
+-    [path.join(__dirname, '..', 'source', 'server.js')].concat(process.argv.slice(2)),
+-    { cwd: path.join(process.cwd(), '..') }
++  const child = child_process.fork(
++    path.join(__dirname, '..', 'source', 'server.js'),
++    process.argv.slice(2),
++    { cwd: path.join(process.cwd(), '..'), silent: true }
+   );
+ 
+   child.on('exit', (res) => {
