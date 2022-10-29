@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+    - gh-actions
+  workflow_dispatch:
+  
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "*"
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - run: npm run build --if-present
+      - run: npm test
