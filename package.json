@@ -33,7 +33,7 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "Ungit Extension configuration",
+      "title": "Ungit",
       "properties": {
         "ungit.showButton": {
           "type": "boolean",
