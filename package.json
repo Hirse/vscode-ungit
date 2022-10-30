@@ -3,7 +3,7 @@
   "displayName": "Ungit",
   "description": "Ungit in Visual Studio Code.",
   "icon": "images/logo.png",
-  "version": "2.3.4",
+  "version": "2.4.0",
   "publisher": "Hirse",
   "galleryBanner": {
     "color": "#252833",
