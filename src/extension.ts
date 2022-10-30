@@ -89,7 +89,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
             child = fork(modulePath, parameter, { silent: true });
             const showInActiveColumn = workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") === true;
             const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
-            child.stdout!.on("data", (message: Buffer) => {
+            child.stdout?.on("data", (message: Buffer) => {
                 const started =
                     (message.toString().includes("## Ungit started ##")) ||
                     (message.toString().includes("Ungit server already running")) ||
@@ -110,7 +110,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                     resolve();
                 }
             });
-            child.stderr!.on("error", (error) => {
+            child.stderr?.on("error", (error) => {
                 window.showErrorMessage(`Error opening Ungit: "${error.message}"`);
                 telemetryReporter.sendTelemetryException(error);
                 reject();

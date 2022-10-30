@@ -82,7 +82,7 @@
     "package": "vsce package",
     "postinstall": "patch-package",
     "publish": "vsce publish",
-    "test": "tslint -t verbose -p tsconfig.json"
+    "test": "eslint src/*"
   },
   "dependencies": {
     "ungit": "1.5.6",
@@ -91,9 +91,11 @@
   "devDependencies": {
     "@types/node": "12.x.x",
     "@types/vscode": "1.x.x",
+    "@typescript-eslint/eslint-plugin": "5.x.x",
+    "@typescript-eslint/parser": "5.x.x",
+    "eslint": "8.x.x",
     "patch-package": "6.x.x",
     "postinstall-postinstall": "2.x.x",
-    "tslint": "6.x.x",
     "typescript": "3.8.x",
     "vsce": "2.13.x"
   },
