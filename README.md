@@ -3,7 +3,6 @@
 [![Marketplace Rating](https://vsmarketplacebadge.apphb.com/rating-short/hirse.vscode-ungit.svg)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit#review-details)
 
 [![GitHub Actions](https://github.com/Hirse/vscode-ungit/actions/workflows/main.yml/badge.svg)](https://github.com/Hirse/vscode-ungit/actions/workflows/main.yml)
-[![Greenkeeper badge](https://badges.greenkeeper.io/Hirse/vscode-ungit.svg)](https://greenkeeper.io/)
 
 # VSCode ungit
 Extension to show [ungit][ungit] in Visual Studio Code.

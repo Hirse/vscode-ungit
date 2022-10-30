@@ -98,10 +98,5 @@
     "postinstall-postinstall": "2.x.x",
     "typescript": "3.8.x",
     "vsce": "2.13.x"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "@types/node"
-    ]
   }
 }
