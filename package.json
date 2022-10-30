@@ -25,7 +25,7 @@
     "multi-root ready"
   ],
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.72.0"
   },
   "main": "./out/src/extension",
   "activationEvents": [
@@ -89,14 +89,14 @@
     "vscode-extension-telemetry": "0.1.2"
   },
   "devDependencies": {
-    "@types/node": "12.x.x",
-    "@types/vscode": "1.x.x",
+    "@types/node": "16.x.x",
+    "@types/vscode": "1.72.x",
     "@typescript-eslint/eslint-plugin": "5.x.x",
     "@typescript-eslint/parser": "5.x.x",
     "eslint": "8.x.x",
     "patch-package": "6.x.x",
     "postinstall-postinstall": "2.x.x",
-    "typescript": "3.8.x",
+    "typescript": "4.8.x",
     "vsce": "2.13.x"
   }
 }

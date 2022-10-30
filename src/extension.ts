@@ -1,6 +1,16 @@
-import { ChildProcess, fork } from "child_process";
-import { dirname, join } from "path";
-import { commands, ExtensionContext, ProgressLocation, Uri, ViewColumn, window, workspace, WorkspaceFolder } from "vscode";
+import { ChildProcess, fork } from "node:child_process";
+import { dirname, join } from "node:path";
+
+import {
+    commands,
+    ExtensionContext,
+    ProgressLocation,
+    Uri,
+    ViewColumn,
+    window,
+    workspace,
+    WorkspaceFolder,
+} from "vscode";
 import TelemetryReporter from "vscode-extension-telemetry";
 
 import packageJson from "../package.json";
@@ -54,73 +64,90 @@ function executeCommand(): void {
     } else {
         workspaceFolderPromise = window.showWorkspaceFolderPick();
     }
-    workspaceFolderPromise.then((workspaceFolder) => {
-        if (typeof workspaceFolder === "undefined") {
-            window.showErrorMessage("Can't open Ungit outside a workspace.");
-        } else if (workspaceFolder.uri.scheme !== "file") {
-            window.showErrorMessage("Can't open Ungit on remote workpaces.");
-        } else {
-            openInWorkspace(workspaceFolder);
+    workspaceFolderPromise.then(
+        (workspaceFolder) => {
+            if (typeof workspaceFolder === "undefined") {
+                window.showErrorMessage("Can't open Ungit outside a workspace.");
+            } else if (workspaceFolder.uri.scheme !== "file") {
+                window.showErrorMessage("Can't open Ungit on remote workpaces.");
+            } else {
+                openInWorkspace(workspaceFolder);
+            }
+        },
+        () => {
+            window.showErrorMessage("Can't open Ungit: Unable to determine workspace.");
         }
-    }, () => {
-        window.showErrorMessage("Can't open Ungit: Unable to determine workspace.");
-    });
+    );
 }
 
 function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
     const ungitUri = workspaceFolder.uri.with({ scheme: "ungit" });
     const ungitTabTitle = `Ungit - ${workspaceFolder.name}`;
-    window.withProgress({
-        location: ProgressLocation.Notification,
-        title: "Starting Ungit",
-        cancellable: true,
-    }, (progress, token) => {
-        token.onCancellationRequested(() => {
-            if (child) {
-                child.kill();
-            }
-        });
-        return new Promise((resolve, reject) => {
-            const parameter = ["--no-b", "--ungitVersionCheckOverride"];
-            const gitPath = workspace.getConfiguration("git").get<string>("path");
-            if (gitPath) {
-                parameter.push(`--gitBinPath=${dirname(gitPath)}`);
-            }
-            child = fork(modulePath, parameter, { silent: true });
-            const showInActiveColumn = workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") === true;
-            const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
-            child.stdout?.on("data", (message: Buffer) => {
-                const started =
-                    (message.toString().includes("## Ungit started ##")) ||
-                    (message.toString().includes("Ungit server already running")) ||
-                    (message.toString().includes("EADDRINUSE: address already in use"));
-                if (started) {
-                    progress.report({
-                        increment: 100,
-                    });
-                    const panel = window.createWebviewPanel("ungit", ungitTabTitle, {
-                        viewColumn,
-                        preserveFocus: true,
-                    }, {
-                        retainContextWhenHidden: true,
-                        enableScripts: true,
-                    });
-                    panel.webview.html = getWebViewHTML(ungitUri, ungitTabTitle);
-                    panel.iconPath = Uri.file(iconPath);
-                    resolve();
+    window.withProgress(
+        {
+            location: ProgressLocation.Notification,
+            title: "Starting Ungit",
+            cancellable: true,
+        },
+        (progress, token) => {
+            token.onCancellationRequested(() => {
+                if (child) {
+                    child.kill();
                 }
             });
-            child.stderr?.on("error", (error) => {
-                window.showErrorMessage(`Error opening Ungit: "${error.message}"`);
-                telemetryReporter.sendTelemetryException(error);
-                reject();
+            return new Promise<void>((resolve, reject) => {
+                const parameter = ["--no-b", "--ungitVersionCheckOverride"];
+                const gitPath = workspace.getConfiguration("git").get<string>("path");
+                if (gitPath) {
+                    parameter.push(`--gitBinPath=${dirname(gitPath)}`);
+                }
+                child = fork(modulePath, parameter, { silent: true });
+                const showInActiveColumn =
+                    workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") ===
+                    true;
+                const viewColumn = showInActiveColumn ? ViewColumn.Active : ViewColumn.Beside;
+                child.stdout?.on("data", (message: Buffer) => {
+                    const started =
+                        message.toString().includes("## Ungit started ##") ||
+                        message.toString().includes("Ungit server already running") ||
+                        message.toString().includes("EADDRINUSE: address already in use");
+                    if (started) {
+                        progress.report({
+                            increment: 100,
+                        });
+                        const panel = window.createWebviewPanel(
+                            "ungit",
+                            ungitTabTitle,
+                            {
+                                viewColumn,
+                                preserveFocus: true,
+                            },
+                            {
+                                retainContextWhenHidden: true,
+                                enableScripts: true,
+                            }
+                        );
+                        panel.webview.html = getWebViewHTML(ungitUri, ungitTabTitle);
+                        panel.iconPath = Uri.file(iconPath);
+                        resolve();
+                    }
+                });
+                child.stderr?.on("error", (error) => {
+                    window.showErrorMessage(`Error opening Ungit: "${error.message}"`);
+                    telemetryReporter.sendTelemetryException(error);
+                    reject();
+                });
             });
-        });
-    });
+        }
+    );
 }
 
 export function activate(context: ExtensionContext): void {
-    telemetryReporter = new TelemetryReporter(packageJson.name, packageJson.version, "732684ea-6bd5-4ef0-a46d-bb9389c6aea5");
+    telemetryReporter = new TelemetryReporter(
+        packageJson.name,
+        packageJson.version,
+        "732684ea-6bd5-4ef0-a46d-bb9389c6aea5"
+    );
     iconPath = join(context.extensionPath, "images", "icon.png");
     const disposable = commands.registerCommand("extension.ungit", executeCommand);
     context.subscriptions.push(disposable, telemetryReporter);
