@@ -24,3 +24,5 @@ jobs:
           diff-search: true
       - if: steps.check.outputs.changed == 'true'
         run: yarn run publish --pre-release
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
