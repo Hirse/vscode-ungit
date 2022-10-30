@@ -77,12 +77,12 @@
     ]
   },
   "scripts": {
+    "build": "tsc",
     "compile": "tsc -watch",
     "package": "vsce package",
     "postinstall": "patch-package",
     "publish": "vsce publish",
-    "test": "tslint -t verbose -p tsconfig.json",
-    "vscode:prepublish": "tsc"
+    "test": "tslint -t verbose -p tsconfig.json"
   },
   "dependencies": {
     "ungit": "1.5.6",
