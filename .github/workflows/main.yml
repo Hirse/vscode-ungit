@@ -23,4 +23,4 @@ jobs:
         with:
           diff-search: true
       - if: steps.check.outputs.changed == 'true'
-        run: yarn package
+        run: yarn publish --pre-release

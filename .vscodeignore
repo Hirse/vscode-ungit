@@ -1,11 +1,15 @@
+.github/**
 .vscode/**
-.vscode-test/**
+node_modules/**/*.md
+node_modules/**/license
+node_modules/**/LICENSE
 out/test/**
+patches/**
 screenshots/**
 src/**
 test/**
+**/*.ts
 **/*.map
 .gitignore
 tsconfig.json
 tslint.json
-*.vsix

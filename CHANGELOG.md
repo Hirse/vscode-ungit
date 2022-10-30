@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.3.0 - 2022-10-29
+### Changed
+- Use `fork` to create Ungit sub process
+
+
 ## 2.2.3 - 2020-04-21
 ### Changed
 - Updated Ungit to 1.5.6
