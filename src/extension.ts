@@ -158,6 +158,6 @@ export function deactivate(): void {
     telemetryReporter.sendTelemetryEvent("deactivate");
     telemetryReporter.dispose();
     if (child) {
-        child.kill();
+        child.kill('SIGINT');
     }
 }
