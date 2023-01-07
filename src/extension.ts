@@ -1,4 +1,4 @@
-import { ChildProcess, fork } from "node:child_process";
+import { ChildProcess, spawn } from "node:child_process";
 import { dirname, join } from "node:path";
 
 import {
@@ -101,7 +101,7 @@ function openInWorkspace(workspaceFolder: WorkspaceFolder): void {
                 if (gitPath) {
                     parameter.push(`--gitBinPath=${dirname(gitPath)}`);
                 }
-                child = fork(modulePath, parameter, { silent: true });
+                child = spawn(modulePath, parameter);
                 const showInActiveColumn =
                     workspace.getConfiguration("ungit", workspaceFolder.uri).get<boolean>("showInActiveColumn") ===
                     true;
@@ -158,6 +158,6 @@ export function deactivate(): void {
     telemetryReporter.sendTelemetryEvent("deactivate");
     telemetryReporter.dispose();
     if (child) {
-        child.kill();
+        child.kill('SIGINT');
     }
 }
