@@ -1,6 +1,6 @@
-[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version-short/hirse.vscode-ungit.svg)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit)
-[![Marketplace Installs](https://vsmarketplacebadge.apphb.com/installs-short/Hirse.vscode-ungit.svg)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit)
-[![Marketplace Rating](https://vsmarketplacebadge.apphb.com/rating-short/hirse.vscode-ungit.svg)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit#review-details)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/hirse.vscode-ungit)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit)
+[![Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/hirse.vscode-ungit)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit)
+[![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/hirse.vscode-ungit)](https://marketplace.visualstudio.com/items?itemName=Hirse.vscode-ungit#review-details)
 
 [![GitHub Actions](https://github.com/Hirse/vscode-ungit/actions/workflows/main.yml/badge.svg)](https://github.com/Hirse/vscode-ungit/actions/workflows/main.yml)
 
