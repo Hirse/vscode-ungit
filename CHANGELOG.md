@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.5.1 - 2023-08-12
+### Fixed
+- Fixed SVG host in Readme
+
+
 ## 2.5.0 - 2023-08-12
 ### Changed
 - Updated Ungit to 1.5.24
