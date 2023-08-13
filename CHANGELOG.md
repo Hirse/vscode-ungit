@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 2.5.0 - 2023-08-12
+### Changed
+- Updated Ungit to 1.5.24
+- Updated VSCode requirement to ^1.75.0
+
+
 ## 2.4.0 - 2022-10-29
 ### Changed
 - Updated Ungit to 1.5.21

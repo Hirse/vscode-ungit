@@ -55,11 +55,10 @@ function getWebViewHTML(uri: Uri, title: string): string {
  */
 function executeCommand(): void {
     telemetryReporter.sendTelemetryEvent("extension.ungit");
-    const activeTextEditor = window.activeTextEditor;
     let workspaceFolderPromise: Thenable<WorkspaceFolder | undefined>;
-    if (activeTextEditor && activeTextEditor.document.uri.scheme === "file") {
-        workspaceFolderPromise = Promise.resolve(workspace.getWorkspaceFolder(activeTextEditor.document.uri));
-    } else if (workspace.workspaceFolders && workspace.workspaceFolders.length === 1) {
+    if (window.activeTextEditor?.document.uri.scheme === "file") {
+        workspaceFolderPromise = Promise.resolve(workspace.getWorkspaceFolder(window.activeTextEditor.document.uri));
+    } else if (workspace.workspaceFolders?.length === 1) {
         workspaceFolderPromise = Promise.resolve(workspace.workspaceFolders[0]);
     } else {
         workspaceFolderPromise = window.showWorkspaceFolderPick();
